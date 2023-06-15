@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Git</title>
+</head>
+<body>
+    <!--  1.You can see a main element with a corresponding id="main-doc", which contains the page's main content (technical documentation) -->
+    <main id="main-doc">
+            <!-- 8. You can see a nav element with a corresponding id="navbar" -->
+        <nav id="navbar">
+            <!-- 9. The navbar element should contain one header element which contains text that describes the topic of the technical documentation  -->
+                <!-- 11. The header element in the #navbar must come before any link (a) elements in the navbar -->
+            <header id="title">Git</header>
+            <!--  10. Additionally, the navbar should contain link (a) elements with the class of nav-link. There should be one for every element with the class main-section -->
+            <ul>
+                <li><a href="#Short_History_on_Git" class="nav-link">Short History on Git</a></li>
+                <li><a href="#What_is_Git?" class="nav-link">What is Git?</a></li>
+                <li><a href="#Differences_with_other_version_control_system" class="nav-link">Differences with other version control system</a></li>
+                <li><a href="#The_three_States" class="nav-link">The three States</a></li>
+                <li><a href="#Installing_Git" class="nav-link">Installing Git</a></li>
+            </ul>
+        </nav>
+        <!-- 2. Within the #main-doc element, you can see several section elements, each with a class of main-section. There should be a minimum of five -->
+       
+        <section class="main-section" id="Short_History_on_Git">
+            <!--   3. The first element within each .main-section should be a header element, which contains text that describes the topic of that section. -->
+            <header>Short History on Git</header>
+            <p>
+
+                As with many great things in life, Git began with a bit of creative destruction and fiery controversy.
+                
+                The Linux kernel is an open source software project of fairly large scope. During the early years of the Linux kernel maintenance (1991–2002), changes to the software were passed around as patches and archived files. In 2002, the Linux kernel project began using a proprietary DVCS called BitKeeper.
+                
+                In 2005, the relationship between the community that developed the Linux kernel and the commercial company that developed BitKeeper broke down, and the tool’s free-of-charge status was revoked. This prompted the Linux development community (and in particular Linus Torvalds, the creator of Linux) to develop their own tool based on some of the lessons they learned while using BitKeeper. Some of the goals of the new system were as follows:
+                <ul>
+                    <li>Speed</li>
+                    <li>Strong support for non-linear development (thousands of parallel branches)</li>
+                    <li>Fully distributed</li>
+                    <li>Simple Design</li>
+                    <li>Strong support for non-linear development (thousands of parallel branches)</li>
+                    <li>Simple design</li>
+                </ul>
+                Able to handle large projects like the Linux kernel efficiently (speed and data size)
+                Since its birth in 2005, Git has evolved and matured to be easy to use and yet retain these initial qualities. It’s amazingly fast, it’s very efficient with large projects, and it has an incredible branching system for non-linear development </p>
+        </section>
+        <section class="main-section" id="What_is_Git?">
+            <header>What is Git?</header>
+            <p>So, what is Git in a nutshell? This is an important section to absorb, because if you understand what Git is and the fundamentals of how it works, then using Git effectively will probably be much easier for you. As you learn Git, try to clear your mind of the things you may know about other VCSs, such as CVS, Subversion or Perforce — doing so will help you avoid subtle confusion when using the tool. Even though Git’s user interface is fairly similar to these other VCSs, Git stores and thinks about information in a very different way, and understanding these differences will help you avoid becoming confused while using it.</p>
+        </section>
+        <section class="main-section" id="Differences_with_other_version_control_system">
+            <header>Differences with other version control system</header>
+            <p><b>Snapshots, Not Differences</b><br/>
+                The major difference between Git and any other VCS (Subversion and friends included) is the way Git thinks about its data. Conceptually, most other systems store information as a list of file-based changes. These other systems (CVS, Subversion, Perforce, Bazaar, and so on) think of the information they store as a set of files and the changes made to each file over time (this is commonly described as delta-based version control).
+            </p>
+            <p>Git doesn’t think of or store its data this way. Instead, Git thinks of its data more like a series of snapshots of a miniature filesystem. With Git, every time you commit, or save the state of your project, Git basically takes a picture of what all your files look like at that moment and stores a reference to that snapshot. To be efficient, if files have not changed, Git doesn’t store the file again, just a link to the previous identical file it has already stored. Git thinks about its data more like a stream of snapshots.
+
+            </p>
+            <p>This is an important distinction between Git and nearly all other VCSs. It makes Git reconsider almost every aspect of version control that most other systems copied from the previous generation. This makes Git more like a mini filesystem with some incredibly powerful tools built on top of it, rather than simply a VCS.    
+            </p>
+
+
+        </section>
+        <section class="main-section" id="The_three_States">
+            <header>The three States</header>
+            <p>Pay attention now — here is the main thing to remember about Git if you want the rest of your learning process to go smoothly. Git has three main states that your files can reside in: modified, staged, and committed:</p>
+            <ul>
+                <li>Modified means that you have changed the file but have not committed it to your database yet.</li>
+                <li>Staged means that you have marked a modified file in its current version to go into your next commit snapshot.</li>
+                <li>Committed means that the data is safely stored in your local database.</li>
+            </ul>
+            <p>This leads us to the three main sections of a Git project: the working tree, the staging area, and the Git directory.</p>
+            <p>
+
+                The working tree is a single checkout of one version of the project. These files are pulled out of the compressed database in the Git directory and placed on disk for you to use or modify.
+                
+                The staging area is a file, generally contained in your Git directory, that stores information about what will go into your next commit. Its technical name in Git parlance is the “index”, but the phrase “staging area” works just as well.
+                
+                The Git directory is where Git stores the metadata and object database for your project. This is the most important part of Git, and it is what is copied when you clone a repository from another computer.
+            </p>
+            <p>
+                The basic Git workflow goes something like this:
+                <ol>
+                    <li>You modify files in your working tree.</li>
+                    <li>You selectively stage just those changes you want to be part of your next commit, which adds only those changes to the staging area.</li>
+                    <li>You do a commit, which takes the files as they are in the staging area and stores that snapshot permanently to your Git directory.</li>
+                </ol>
+            </p>
+        </section>
+        <section class="main-section" id="Installing_Git">
+            <header>Installing Git</header>
+            <p>Before you start using Git, you have to make it available on your computer. Even if it’s already installed, it’s probably a good idea to update to the latest version. You can either install it as a package or via another installer, or download the source code and compile it yourself.</p>
+            <h4>Installing on Linux</h4>
+            <p>If you want to install the basic Git tools on Linux via a binary installer, you can generally do so through the package management tool that comes with your distribution. If you’re on Fedora (or any closely-related RPM-based distribution, such as RHEL or CentOS), you can use dnf:</p>
+            <code>$ sudo dnf install git-all</code>
+            <p>If you’re on a Debian-based distribution, such as Ubuntu, try apt:</p>
+            <code>$ sudo apt install git-all</code>
+            <h4>Installing on MacOs</h4>
+            <p>There are several ways to install Git on macOS. The easiest is probably to install the Xcode Command Line Tools. On Mavericks (10.9) or above you can do this simply by trying to run git from the Terminal the very first time. </p>
+            <code>$ git --version</code>
+            <p>If you don’t have it installed already, it will prompt you to install it.
+             If you want a more up to date version, you can also install it via a binary installer. A macOS Git installer is maintained and available for download at the Git website, at https://git-scm.com/download/mac.
+            </p>
+            <h4>Installing on Windows</h4>
+            <p>There are also a few ways to install Git on Windows. The most official build is available for download on the Git website. Just go to https://git-scm.com/download/win and the download will start automatically. Note that this is a project called Git for Windows, which is separate from Git itself; for more information on it, go to https://gitforwindows.org.
+            To get an automated installation you can use the Git Chocolatey package. Note that the Chocolatey package is community maintained.
+             </p>
+            <h4>Installing from Source</h4>
+            <p>Some people may instead find it useful to install Git from source, because you’ll get the most recent version. The binary installers tend to be a bit behind, though as Git has matured in recent years, this has made less of a difference.
+            If you do want to install Git from source, you need to have the following libraries that Git depends on: autotools, curl, zlib, openssl, expat, and libiconv. For example, if you’re on a system that has dnf (such as Fedora) or apt-get (such as a Debian-based system), you can use one of these commands to install the minimal dependencies for compiling and installing the Git binaries:
+            </p>
+            <code>
+                $ sudo dnf install dh-autoreconf curl-devel expat-devel gettext-devel \
+              openssl-devel perl-devel zlib-devel
+            </code>
+            <code>$ sudo apt-get install dh-autoreconf libcurl4-gnutls-dev libexpat1-dev \
+                 gettext libz-dev libssl-dev
+            </code>
+            <p>In order to be able to add the documentation in various formats (doc, html, info), these additional dependencies are required:</p>
+            <code>$ sudo dnf install asciidoc xmlto docbook2X</code>
+            <code>$ sudo apt-get install asciidoc xmlto docbook2x</code>
+            <p>If you’re using a Debian-based distribution (Debian/Ubuntu/Ubuntu-derivatives), you also need the install-info package:</p>
+            <code>$ sudo apt-get install install-info</code>
+            <p>If you’re using a RPM-based distribution (Fedora/RHEL/RHEL-derivatives), you also need the getopt package (which is already installed on a Debian-based distro):</p>
+            <code>$ sudo dnf install getopt </code>
+            <p>Additionally, if you’re using Fedora/RHEL/RHEL-derivatives, you need to do this: </p>
+            <code>$ sudo ln -s /usr/bin/db2x_docbook2texi /usr/bin/docbook2x-texi</code>
+            <p>When you have all the necessary dependencies, you can go ahead and grab the latest tagged release tarball from several places. You can get it via the kernel.org site, at <a href="https://www.kernel.org/pub/software/scm/git">https://www.kernel.org/pub/software/scm/git</a>, or the mirror on the GitHub website, at <a href="https://github.com/git/git/tags">https://github.com/git/git/tags</a>. It’s generally a little clearer what the latest version is on the GitHub page, but the kernel.org page also has release signatures if you want to verify your download.</p>
+            <p>Then, compile and install:</p>
+            <code>$ tar -zxf git-2.8.0.tar.gz</code>
+            <code> $ cd git-2.8.0</code>   
+            <code>   $ make configure</code>   
+            <code>   $ ./configure --prefix=/usr</code>   
+            <code>   $ make all doc info</code>   
+            <code>   $ sudo make install install-doc install-html install-info</code>
+       </section>    
+    </main>
+</body>
+</html>
