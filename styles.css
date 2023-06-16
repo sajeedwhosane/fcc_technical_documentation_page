@@ -58,3 +58,15 @@ code{
     padding:0.1em;
 }
 
+/* for tablets and mobile phones */
+@media only screen and (max-width:768px) {
+    #navbar{
+        position: relative;
+        width: 100%;
+        height: 10%;
+    }
+    .main-section{
+        padding-top: 31%;
+        margin-left:0;
+    }
+}
